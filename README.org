@@ -7,16 +7,16 @@
 This library provides support for [[https://www.conventionalcommits.org/en/v1.0.0/][conventional commits]] in Emacs.
 It provides a completion function for types and scopes.
 ** Configuration
-Follow this section to provide company completion in your project.
-
-First, add =conventional-commit-capf= to  =completion-at-point-functions= in =git-commit-mode=.
-You can use =conventional-commit-setup=:
+If you are using =eglot= or =lsp-mode=, you have probably added =company-capf= to =company-backends= already.
+You can use the following =use-package= snippet to enable company completion in =git-commit-mode=:
 
 #+begin_src emacs-lisp
-  (add-hook 'git-commit-mode-hook #'conventional-commit-setup)
+  (use-package conventional-commit
+    :hook
+    (git-commit-mode . conventional-commit-setup))
 #+end_src
 
-Then add =company-capf= to =company-backends=:
+If you haven't, you have to add =company-capf= to =company-backends=:
 
 #+begin_src emacs-lisp
   (add-hook 'company-backends #'company-capf)

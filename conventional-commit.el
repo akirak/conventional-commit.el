@@ -30,8 +30,8 @@
 ;; This library provides a `completion-at-point' function for conventional
 ;; commits <https://www.conventionalcommits.org/en/v1.0.0/>. By adding
 ;; `conventional-commit-capf' to `completion-at-point-functions' in
-;; `git-commit-mode' and adding `company-capf' to `company-backends', you can
-;; get completion of a type, which is configured globally, or a scope, which is
+;; `git-commit-mode' and `company-capf' to `company-backends', you can get
+;; completion of types, which is configured globally, or scopes, which is
 ;; configured locally.
 
 ;;; Code:
