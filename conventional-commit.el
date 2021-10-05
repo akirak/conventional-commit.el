@@ -54,7 +54,10 @@
     "refactor"
     "perf"
     "test")
-  "List of types allowed at the beginning of a message."
+  "List of types allowed at the beginning of a message.
+
+See <https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type>
+for an example."
   :type '(repeat string))
 
 (defcustom conventional-commit-scope-table nil
