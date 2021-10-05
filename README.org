@@ -1,4 +1,9 @@
 * conventional-commit.el
+#+begin_html
+<a href="https://github.com/akirak/conventional-commit.el/actions?query=workflow%3A%22CI%22">
+<img alt="CI Status" src="https://github.com/akirak/conventional-commit.el/workflows/CI/badge.svg" />
+</a>
+#+end_html
 This library provides support for [[https://www.conventionalcommits.org/en/v1.0.0/][conventional commits]] in Emacs.
 It provides a completion function for types and scopes.
 ** Configuration
