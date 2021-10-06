@@ -78,17 +78,21 @@ can be a list of strings or a dynamic completion table created by
 (defun conventional-commit-capf ()
   "`completion-at-point-functions' entry for conventional commits."
   (when (= 0 (cdr (posn-actual-col-row (posn-at-point (point)))))
-    (cond
-     ((looking-back (rx bol (+ alpha)) 0)
-      (list (match-beginning 0)
-            (match-end 0)
-            conventional-commit-type-list
-            :exclusive t))
-     ((looking-back (rx bol (+ alpha) "(" (group (+ (not (any ")"))))) 0)
-      (list (match-beginning 1)
-            (match-end 1)
-            conventional-commit-scope-table
-            :exclusive t)))))
+    (save-restriction
+      (narrow-to-region (point-min) (point))
+      (save-excursion
+        (goto-char (point-min))
+        (cond
+         ((looking-at (rx (+ alpha) eos))
+          (list (match-beginning 0)
+                (match-end 0)
+                conventional-commit-type-list
+                :exclusive t))
+         ((looking-at (rx (+ alpha) "(" (group (+ (not (any ")")))) eos))
+          (list (match-beginning 1)
+                (match-end 1)
+                conventional-commit-scope-table
+                :exclusive t)))))))
 
 ;;;###autoload
 (defun conventional-commit-setup ()
