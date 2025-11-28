@@ -98,7 +98,7 @@ can be a list of strings or a dynamic completion table created by
 (defun conventional-commit-setup ()
   "Set up `completion-at-point-functions' for the current buffer."
   (add-hook 'completion-at-point-functions #'conventional-commit-capf
-            'append 'local))
+            nil 'local))
 
 (provide 'conventional-commit)
 ;;; conventional-commit.el ends here
