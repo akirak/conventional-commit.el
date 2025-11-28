@@ -83,7 +83,7 @@ can be a list of strings or a dynamic completion table created by
       (save-excursion
         (goto-char (point-min))
         (cond
-         ((looking-at (rx (+ alpha) eos))
+         ((looking-at (rx (* alpha) eos))
           (list (match-beginning 0)
                 (match-end 0)
                 conventional-commit-type-list
